@@ -2,20 +2,23 @@
     <!--某个商家上架了的商品列表-->
     <div>
         <el-row>
-            <el-button type="primary" icon="el-icon-plus" style="float: left" @click="dialogFormVisible = true">新建商品
+            <el-button type="primary" icon="el-icon-plus"
+                       style="float: left"
+                       @click="dialogFormVisible = true"
+            >新建商品
             </el-button>
         </el-row>
 
-        <el-dialog title="新增商品" :visible.sync="dialogFormVisible">
+        <el-dialog title="新增商品" :visible.sync="dialogFormVisible" width="30%">
             <el-form :model="form">
-                <el-form-item label="商品名称" :label-width="formLabelWidth">
-                    <el-input v-model="form.name" placeholder="请填入商品名称"></el-input>
+                <el-form-item label="名称" :label-width="formLabelWidth">
+                    <el-input v-model="form.name" placeholder="请填入名称"></el-input>
                 </el-form-item>
-                <el-form-item label="商品描述" :label-width="formLabelWidth">
-                    <el-input v-model="form.description" placeholder="请添加商品描述"></el-input>
+                <el-form-item label="描述" :label-width="formLabelWidth">
+                    <el-input v-model="form.description" placeholder="请添加描述"></el-input>
                 </el-form-item>
-                <el-form-item label="商品价格" :label-width="formLabelWidth">
-                    <el-input v-model="form.price" placeholder="请添加商品描述"></el-input>
+                <el-form-item label="价格" :label-width="formLabelWidth">
+                    <el-input v-model="form.price" placeholder="请添加描述"></el-input>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -24,16 +27,16 @@
             </div>
         </el-dialog>
 
-        <el-row :gutter="20" style="margin-top: 0;padding-top: 0">
+        <el-row :gutter="20">
             <el-col :span="12">
                 <div class="grid-content bg-purple-light">
                     <h3>已上架</h3>
+                    <hr>
                     <el-row :gutter="0" style="padding: 20px" v-for="(item,index) in product_up" :key="index">
                         <div>
                             <el-col :span="8">
-                                <img
-                                    src="https://g-search2.alicdn.com/img/bao/uploaded/i4/i1/2213019919307/O1CN01IVHFfP2Icez8jD096_!!2213019919307-0-picasso.jpg_580x580Q90.jpg_.webp"
-                                    alt=""></el-col>
+                                <img src="@/assets/img/3.png" alt="">
+                            </el-col>
                             <el-col :span="8" style="display: flex;flex-direction: column">
                                 <br/>
                                 <span>商品名称: {{ item.name }}</span>
@@ -47,7 +50,7 @@
                                 <br/>
                                 <br/>
                                 <br/>
-                                <el-button type="info" @click="down(item.id)">下架</el-button>
+                                <el-button type="warning" @click="down(item.id)">下架</el-button>
                                 <br/>
                             </el-col>
                         </div>
@@ -58,12 +61,13 @@
             <el-col :span="12">
                 <div class="grid-content bg-purple-light">
                     <h3>未上架</h3>
+                    <hr>
                     <el-row :gutter="0" style="padding: 20px" v-for="(item,index) in product_down" :key="index">
                         <div>
                             <el-col :span="8">
                                 <img
-                                    src="https://g-search2.alicdn.com/img/bao/uploaded/i4/i1/2213019919307/O1CN01IVHFfP2Icez8jD096_!!2213019919307-0-picasso.jpg_580x580Q90.jpg_.webp"
-                                    alt=""></el-col>
+                                    src="@/assets/img/3.png" alt="">
+                            </el-col>
                             <el-col :span="8" style="display: flex;flex-direction: column">
                                 <br/>
                                 <span>商品名称: {{ item.name }}</span>
@@ -77,7 +81,7 @@
                                 <br/>
                                 <br/>
                                 <br/>
-                                <el-button type="warning" @click="up(item.id)">上架</el-button>
+                                <el-button type="primary" @click="up(item.id)">上架</el-button>
                                 <br/>
                             </el-col>
                         </div>
@@ -195,6 +199,7 @@ export default {
     },
 
     mounted() {
+        //上架商品
         axios.get('/shop/getShopItemState1?shopId=' + localStorage.getItem("shopId"))
             .then((res) => {
                 console.log(res.data)
@@ -206,6 +211,7 @@ export default {
                 console.log(this.product_up)
             })
 
+        //未上架商品
         axios.get('/shop/getShopItemState0?shopId=' + localStorage.getItem("shopId"))
             .then((res) => {
                 console.log(res.data)
@@ -216,9 +222,7 @@ export default {
                 }
                 console.log(this.product_down)
             })
-
     },
-
 
 }
 </script>
@@ -234,16 +238,16 @@ img {
     border-radius: 10px;
 }
 
-.el-main {
-    padding: 0 !important;
+span{
+    //border: 1px solid red;
+    text-align: left;
+    margin-left: 5vw;
 }
-
 .el-row {
     padding-bottom: 0 !important;
     padding-top: 0 !important;
     margin: 0;
     height: 100%;
-
 }
 
 
@@ -261,7 +265,7 @@ img {
 }
 
 .bg-purple-light {
-    background: #f9fafc;
+    background: #eaf0ef;
 }
 
 .grid-content {
@@ -269,8 +273,5 @@ img {
     height: 100%;
 }
 
-.row-bg {
-    padding: 10px 0;
-    background-color: #f9fafc;
-}
+
 </style>

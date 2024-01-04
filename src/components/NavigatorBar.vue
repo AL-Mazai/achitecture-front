@@ -72,7 +72,7 @@ export default {
 
 .sysname {
     font-weight: bold;
-    font-family: 宋体, serif;
+    font-size: 24px;
     align-content: center;
     margin: 0;
     padding: 0;

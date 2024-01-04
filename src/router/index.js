@@ -33,7 +33,7 @@ const routes = [
             {
                 path: '/shops',
                 component: ShopList,
-                meta: {title: '浏览商店'}
+                meta: {title: '商店列表'}
             },
             {
                 path: '/allorders',

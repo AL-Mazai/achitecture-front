@@ -1,16 +1,18 @@
 <template>
     <el-container>
         <el-main>
-            <h3 style="color: lightsalmon;font-style: italic">订单详情</h3>
+            <h3 style="color: lightsalmon;">订单详情</h3>
             <div style="margin: 20px;"></div>
             <div class="contactor" style="display: flex;justify-content: space-around">
                 <span>收货人: {{ username }}</span>
                 <span>联系方式: {{ phone }}</span>
                 <span>收货地址: {{ address }}</span>
             </div>
-            <div class="orderinfo">
-                <h4>商家名称: {{ shopName }}</h4>
-            </div>
+            <el-row >
+                <el-col :span="8" >
+                    <h4>商家名称: {{ shopName }}</h4>
+                </el-col>
+            </el-row>
             <el-row>
                 <el-col :span="8" style="margin:0"><h4>商品名称</h4></el-col>
                 <el-col :span="8" style="margin:0"><h4>商品数量</h4></el-col>
@@ -20,10 +22,10 @@
                 <div>
                     <el-col :span="8" style="margin-bottom: 10px;">{{ item.itemName }}</el-col>
                     <el-col :span="8" style="margin-bottom: 10px">{{ item.count }}</el-col>
-                    <el-col :span="8" style="margin-bottom: 10px">￥{{ item.totalPrice }}
-                    </el-col>
+                    <el-col :span="8" style="margin-bottom: 10px">￥{{ item.totalPrice }}</el-col>
                 </div>
             </el-row>
+
             <el-row style="margin-top: 25px">
                 <el-col :span="16">合计: {{ details.totalPrice }}元</el-col>
                 <el-col :span="8">
@@ -32,6 +34,7 @@
                 </el-col>
             </el-row>
         </el-main>
+
         <el-dialog
             title="提示"
             :visible.sync="dialogVisible1"
@@ -131,12 +134,15 @@ export default {
 span {
     padding: 10px
 }
-
+h4{
+    //border: 1px red solid;
+    text-align: left;
+    margin-left: 12vw
+}
 .el-header {
     padding: 0;
     margin: 0;
 }
-
 body, html {
     margin: 0;
     width: 100%;

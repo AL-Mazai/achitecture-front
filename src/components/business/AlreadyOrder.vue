@@ -26,9 +26,7 @@
                 label="订单状态"
                 prop="payState">
             </el-table-column>
-            <el-table-column
-                align="right"
-            >
+            <el-table-column align="right">
                 <template slot-scope="scope">
                     <el-button
                         type="primary" plain
@@ -43,15 +41,16 @@
                 </template>
             </el-table-column>
         </el-table>
+
         <el-dialog
             title="提示"
             :visible.sync="dialogVisible1"
             width="30%">
             <span>确认删除订单?</span>
             <span slot="footer" class="dialog-footer">
-    <el-button @click="dialogVisible1 = false">取 消</el-button>
-    <el-button type="primary" @click="dialogVisible1 = false;cancel()">确 定</el-button>
-  </span>
+                <el-button @click="dialogVisible1 = false">取 消</el-button>
+                <el-button type="primary" @click="dialogVisible1 = false;cancel()">确 定</el-button>
+            </span>
         </el-dialog>
     </div>
 

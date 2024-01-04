@@ -12,7 +12,7 @@
                 <span>联系方式: {{ phone }}</span>
                 <span>收货地址: {{ address }}</span>
             </div>
-            <div class="orderinfo">
+            <div>
                 <h4>商家名称: {{ shopName }}</h4>
             </div>
             <el-row>
@@ -36,15 +36,16 @@
                 </el-col>
             </el-row>
         </el-main>
+
         <el-dialog
             title="提示"
             :visible.sync="dialogVisible1"
             width="30%">
             <span>确认删除订单?</span>
             <span slot="footer" class="dialog-footer">
-    <el-button @click="dialogVisible1 = false">取 消</el-button>
-    <el-button type="primary" @click="dialogVisible1 = false;cancel()">确 定</el-button>
-  </span>
+                <el-button @click="dialogVisible1 = false">取 消</el-button>
+                <el-button type="primary" @click="dialogVisible1 = false;cancel()">确 定</el-button>
+            </span>
         </el-dialog>
     </el-container>
 </template>

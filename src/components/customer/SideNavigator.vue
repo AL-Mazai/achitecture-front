@@ -5,17 +5,17 @@
                 class="el-menu-vertical-demo"
                 @open="handleOpen"
                 @close="handleClose"
-                background-color="#fff"
-                text-color="black"
-                active-text-color="#409eff"
+                background-color="#545c64"
+                text-color="#fff"
+                active-text-color="#ffd04b"
                 style="height: 100%"
                 :router="true"
                 default-active="/shops"
             >
                 <el-menu-item index="/shops">
                     <template slot="title">
-                        <i class="el-icon-location"></i>
-                        <span>浏览商店</span>
+                        <i class="el-icon-goods"></i>
+                        <span>商店列表</span>
                     </template>
                 </el-menu-item>
                 <el-menu-item index="/allorders">
@@ -71,10 +71,10 @@ span {
     font-family: "Microsoft YaHei", serif;
     font-weight: bold;
     font-size: 18px;
-    color: grey;
 }
 
 .el-menu-item {
-    margin-top: 30px;
+    margin-top: 20px;
+    text-align: left;
 }
 </style>

@@ -2,14 +2,12 @@
     <!--某个商家上架了的商品列表-->
     <div class="container">
         <el-row :gutter="20" style="margin-top: 0;padding-top: 0">
-            <el-col :span="16">
+            <el-col :span="12">
                 <div class="grid-content bg-purple-light">
                     <el-row :gutter="0" style="padding: 20px" v-for="(item,index) in product" :key="index">
                         <div>
                             <el-col :span="8">
-                                <img
-                                    src="@/assets/img/9.png"
-                                    alt=""></el-col>
+                                <img src="@/assets/img/9.png" alt=""></el-col>
                             <el-col :span="8" style="display: flex;flex-direction: column">
                                 <br/>
                                 <span>商品名称: {{ item.name }}</span>
@@ -19,26 +17,27 @@
                                 <span>商品价格: ￥{{ item.price }}</span>
                                 <br/>
                             </el-col>
-                            <el-col :span="8">
+                            <el-col :span="8"  style="text-align: left">
                                 <br/>
                                 <br/>
                                 <br/>
                                 <el-button type="info" size="mini" icon="el-icon-minus" circle
-                                           @click="()=>{if(item.count>0){item.count--;total -= item.price;quantity--} }"
-                                ></el-button>
+                                           @click="()=>{if(item.count>0){item.count--;total -= item.price;quantity--} }">
+                                </el-button>
                                 <span>
                                     {{ item.count }}
                                 </span>
                                 <el-button type="primary" size="mini" icon="el-icon-plus" circle
-                                           @click="item.count++;total += item.price;quantity++"
-                                ></el-button>
+                                           @click="item.count++;total += item.price;quantity++">
+
+                                </el-button>
                                 <br/>
                             </el-col>
                         </div>
                     </el-row>
                 </div>
             </el-col>
-            <el-col :span="8">
+            <el-col :span="12">
                 <div class="grid-content bg-purple-light">
                     <el-row>
                         <el-col :span="8" style="margin:0"><h4>商品名称</h4></el-col>
@@ -178,7 +177,11 @@ img {
     height: 150px;
     border-radius: 10px;
 }
-
+span{
+    //border: 1px solid red;
+    text-align: left;
+    //margin-left: 5vw;
+}
 .el-main {
     padding: 0 !important;
 }
