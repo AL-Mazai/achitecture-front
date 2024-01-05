@@ -23,6 +23,7 @@
 
 <script>
 import axios from 'axios'
+import {setCookie} from "@/util/cookie";
 
 export default {
     name: 'LoginForm',
@@ -51,17 +52,18 @@ export default {
                 }
             }).then(function (res) {
                 console.log(res.data.data);
-                console.log(res.data.data.type)
-                if (res.data.data.type === 0) {
+                console.log(res.data.data.user.type)
+                if (res.data.data.user.type === 0) {
                     // 商家
-                    localStorage.setItem("username", res.data.data.username)
-                    localStorage.setItem("businessId", res.data.data.id)
+                    localStorage.setItem("username", res.data.data.user.username)
+                    localStorage.setItem("businessId", res.data.data.user.id)
                     that.$router.push('/shopsOfBusiness')
                 } else {
-                    localStorage.setItem("username", res.data.data.username)
-                    localStorage.setItem("customerId", res.data.data.id)
+                    localStorage.setItem("username", res.data.data.user.username)
+                    localStorage.setItem("customerId", res.data.data.user.id)
                     that.$router.push('/shopsOfCustomer')
                 }
+                setCookie("token",res.data.data.token)
             })
         },
 
