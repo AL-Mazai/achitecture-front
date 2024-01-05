@@ -100,7 +100,7 @@ export default {
                         type: 'error'
                     })
                     that.reload()
-                    that.$router.push('/refund1')
+                    that.$router.push('/refundOfBusiness')
                 })
         }
     },

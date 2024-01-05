@@ -10,15 +10,15 @@
                 active-text-color="#ffd04b"
                 style="height: 100%"
                 :router="true"
-                default-active="/shops"
+                default-active="/shopsOfCustomer"
             >
-                <el-menu-item index="/shops">
+                <el-menu-item index="/shopsOfCustomer">
                     <template slot="title">
                         <i class="el-icon-goods"></i>
                         <span>商店列表</span>
                     </template>
                 </el-menu-item>
-                <el-menu-item index="/allorders">
+                <el-menu-item index="/allOrdersOfCustomer">
                     <i class="el-icon-document-copy"></i>
                     <span slot="title">所有订单</span>
                 </el-menu-item>
@@ -26,11 +26,11 @@
                     <i class="el-icon-document"></i>
                     <span slot="title">未支付订单</span>
                 </el-menu-item>
-                <el-menu-item index="/already">
+                <el-menu-item index="/payOrder">
                     <i class="el-icon-document-checked"></i>
                     <span slot="title">已支付订单</span>
                 </el-menu-item>
-                <el-menu-item index="/refund">
+                <el-menu-item index="/refundOfCustomer">
                     <i class="el-icon-document-delete"></i>
                     <span slot="title">退款订单</span>
                 </el-menu-item>

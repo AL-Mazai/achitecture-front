@@ -9,7 +9,6 @@
             </el-card>
         </div>
     </div>
-    <!--登录页面-->
 </template>
 
 <script>
@@ -25,11 +24,12 @@ export default {
 
 <style scoped>
 #building {
-    background: url("../assets/bg1.png");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     width: 100%;
     height: 100%;
-    position: fixed;
-    background-size: 100% 100%;
 }
 
 .text {
@@ -42,19 +42,14 @@ export default {
 }
 
 .box-card {
-    width: 480px;
-    opacity: 75%;
+    //width: 480px;
+
+    //border: 1px solid red;
 }
 
 .main {
     text-align: center;
     border-radius: 20px;
-    width: 300px;
-    height: 350px;
-    position: absolute;
-    left: 5%;
-    top: 60%;
-    transform: translate(-20%, -20%);
 }
 
 </style>

@@ -50,7 +50,7 @@ export default {
     data() {
         return {
             loading: true,
-            currentDate: '2021-06-01',
+            currentDate: '2023-01-01',
             shops: '',
             page: 0,
             size: '',
@@ -73,7 +73,7 @@ export default {
             }
         }).then(res => {
             this.shops = res.data.data
-            console.log(res.data.data)
+            console.log("用户界面商家列表：", res.data.data)
             this.loading = false;
         })
     }

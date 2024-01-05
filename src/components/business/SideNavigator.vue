@@ -10,13 +10,13 @@
                 active-text-color="#ffd04b"
                 style="height: 100%"
                 :router="true"
-                default-active="/allorders1"
+                default-active="/allOrdersOfBusiness"
             >
-                <el-menu-item index="/shops1">
+                <el-menu-item index="/shopsOfBusiness">
                     <i class="el-icon-location"></i>
                     <span>返回首页</span>
                 </el-menu-item>
-                <el-menu-item index="/allorders1">
+                <el-menu-item index="/allOrdersOfBusiness">
                     <i class="el-icon-document-copy"></i>
                     <span slot="title">所有订单</span>
                 </el-menu-item>
@@ -24,11 +24,11 @@
                     <i class="el-icon-document"></i>
                     <span slot="title">未确认订单</span>
                 </el-menu-item>
-                <el-menu-item index="/already1">
+                <el-menu-item index="/confirm">
                     <i class="el-icon-document-checked"></i>
                     <span slot="title">已确认订单</span>
                 </el-menu-item>
-                <el-menu-item index="/refund1">
+                <el-menu-item index="/refundOfBusiness">
                     <i class="el-icon-document-delete"></i>
                     <span slot="title">退款订单</span>
                 </el-menu-item>

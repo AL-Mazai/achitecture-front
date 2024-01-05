@@ -101,7 +101,7 @@ export default {
                         type: 'error'
                     })
                     that.reload()
-                    that.$router.push('/allorders1')
+                    that.$router.push('/allOrdersOfBusiness')
                 })
         }
     },

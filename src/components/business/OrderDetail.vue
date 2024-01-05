@@ -99,18 +99,18 @@ export default {
             })
                 .then(function (res) {
                     console.log(res.data)
-                    if (res.data.flag === true) {
+                    if (res.data.code === true) {
                         that.$message({
                             message: '已确认该订单!',
                             type: 'success'
                         })
-                        that.$router.push('/already1')
+                        that.$router.push('/confirm')
                     } else {
                         that.$message({
                             message: '该用户尚未支付，等待用户支付后方可确认！',
                             type: 'error'
                         })
-                        that.$router.push('/allorders1')
+                        that.$router.push('/allOrdersOfBusiness')
                     }
                 })
         },
@@ -124,12 +124,12 @@ export default {
                 }
             }).then(function (res) {
                 console.log(res.data)
-                if (res.data.flag === true) {
+                if (res.data.code === true) {
                     that.$message({
                         message: '退款成功!',
                         type: 'success'
                     })
-                    that.$router.push('/refund1')
+                    that.$router.push('/refundOfBusiness')
                 }
             })
         },
@@ -143,7 +143,7 @@ export default {
                         message: "已删除该订单^-^",
                         type: 'error'
                     })
-                    that.$router.push('/allorders1')
+                    that.$router.push('/allOrdersOfBusiness')
                 })
         }
 

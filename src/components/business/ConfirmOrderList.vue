@@ -60,7 +60,7 @@
 import axios from "axios";
 
 export default {
-    name: "AlreadyOrder",
+    name: "ConfirmOrderList",
     inject: ['reload'],
     data() {
         return {
@@ -99,7 +99,7 @@ export default {
                         type: 'error'
                     })
                     that.reload()
-                    that.$router.push('/already1')
+                    that.$router.push('/confirm')
                 })
         }
     },

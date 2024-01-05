@@ -91,7 +91,7 @@ export default {
                         message: '恭喜你，支付成功! ^-^',
                         type: 'success'
                     })
-                    that.$router.push('/shops')
+                    that.$router.push('/shopsOfCustomer')
                 })
         },
         cancel() {
@@ -104,7 +104,7 @@ export default {
                         message: "已删除该订单^-^",
                         type: 'error'
                     })
-                    that.$router.push('/shops')
+                    that.$router.push('/shopsOfCustomer')
                 })
         }
 

@@ -121,14 +121,14 @@ export default {
         addItem() {
             const that = this
             let req = {
-                shopId: 1,
+                shopId: localStorage.getItem("shopId"),
                 item: {}
             }
             req.item = this.form
             axios.post('/shop/addItem', req)
                 .then(function (res) {
                     // console.log(res.data)
-                    if (res.data.flag === true) {
+                    if (res.data.code === true) {
                         that.dialogFormVisible = false;
                         that.$message({
                             message: '添加成功',
@@ -146,14 +146,14 @@ export default {
         up(val) {
             const that = this
             axios.put('/shop/saleItem', {
-                "shopId": 1,
+                "shopId": localStorage.getItem("shopId"),
                 "itemId": val
             }, {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
             }).then(function (res) {
-                if (res.data.flag === true) {
+                if (res.data.code === true) {
                     that.$message({
                         message: '商品上架成功!',
                         type: 'success',
@@ -172,7 +172,7 @@ export default {
         down(val) {
             const that = this
             axios.put('/shop/stopSale', {
-                "shopId": 1,
+                "shopId": localStorage.getItem("shopId"),
                 "itemId": val
             }, {
                 headers: {
@@ -180,7 +180,7 @@ export default {
                 }
             }).then(function (res) {
                 console.log(res.data)
-                if (res.data.flag === true) {
+                if (res.data.code === true) {
                     that.$message({
                         message: '商品下架成功!',
                         type: 'success',

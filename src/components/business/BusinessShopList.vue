@@ -43,13 +43,14 @@
 
 <script>
 import axios from "axios";
+import businessStore from "@/store";
 
 export default {
     name: "ShopList1",
     data() {
         return {
             loading: true,
-            currentDate: '2021-06-01',
+            currentDate: '2023-01-01',
             shops: '',
             page: 0,
             size: '',
@@ -57,16 +58,20 @@ export default {
     },
     methods: {
         entershop(id, name) {
-            console.log(id, name)
-            // businessStore.businessId = id;
-            // businessStore.businessName = name
-            // localStorage.setItem('shopName',businessStore.businessName)
-            // localStorage.setItem('shopId',businessStore.businessId)
+            console.log("@", id, name)
+            businessStore.businessId = id;
+            businessStore.businessName = name
+            localStorage.setItem('shopName',businessStore.businessName)
+            localStorage.setItem('shopId',businessStore.businessId)
             this.$router.push('/shopinfo1')
         },
         entershoporder(id, name) {
             console.log(id, name)
-            this.$router.push('/allorders1')
+            businessStore.businessId = id;
+            businessStore.businessName = name
+            localStorage.setItem('shopName',businessStore.businessName)
+            localStorage.setItem('shopId',businessStore.businessId)
+            this.$router.push('/allOrdersOfBusiness')
         }
     },
     mounted() {
@@ -76,7 +81,7 @@ export default {
             }
         }).then(res => {
             this.shops = res.data.data
-            console.log(res.data.data)
+            console.log("@", res.data.data)
             this.loading = false;
         })
     }

@@ -1,16 +1,18 @@
 <template>
     <el-row type="flex" justify="center">
-        <el-form ref="formData" :model="formData" :rules="rules" label-width="80px"
-                 @keyup.enter.native="login(formData)">
+        <el-form ref="formData" :model="formData"
+                 :rules="rules" label-width="80px"
+                 @keyup.enter.native="login(formData)"
+        >
             <el-form-item prop="account" label="用户名">
-                <el-input v-model="formData.username" placeholder="请输入用户名" prefix-icon="icon-login_user"
-                          clearable></el-input>
+                <el-input v-model="formData.username" placeholder="请输入用户名"
+                          prefix-icon="icon-login_user" clearable></el-input>
             </el-form-item>
             <el-form-item prop="password" label="密码">
                 <el-input v-model="formData.password" placeholder="请输入密码" type="password"
-                          prefix-icon="icon-login_pwd"
-                          clearable></el-input>
+                          prefix-icon="icon-login_pwd" clearable></el-input>
             </el-form-item>
+
             <el-form-item>
                 <el-button type="primary" class="btn" @click="login()" icon="el-icon-upload">登录</el-button>
                 <el-button @click="resetForm('formData')">重置</el-button>
@@ -54,14 +56,15 @@ export default {
                     // 商家
                     localStorage.setItem("username", res.data.data.username)
                     localStorage.setItem("businessId", res.data.data.id)
-                    that.$router.push('/shops1')
+                    that.$router.push('/shopsOfBusiness')
                 } else {
                     localStorage.setItem("username", res.data.data.username)
                     localStorage.setItem("customerId", res.data.data.id)
-                    that.$router.push('/shops')
+                    that.$router.push('/shopsOfCustomer')
                 }
             })
         },
+
         resetForm(formName) {
             this.$refs[formName].resetFields();
             this.formData.role = ''

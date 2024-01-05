@@ -97,7 +97,7 @@ export default {
                         message: "已删除该订单^-^",
                         type: 'error'
                     })
-                    that.$router.push('/allorders')
+                    that.$router.push('/allOrdersOfCustomer')
                 })
         }
     },

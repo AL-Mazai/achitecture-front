@@ -9,8 +9,6 @@ import AllOrderList1 from "@/components/business/AllOrderList";
 
 import CustomerOrderInfoView from "@/views/CustomerOrderInfoView";
 import UnpayOrderList from "@/components/customer/UnpayOrderList";
-import AlreadyOrder from "@/components/customer/AlreadyOrder";
-import AlreadyOrder1 from "@/components/business/AlreadyOrder";
 
 import RefundOrder from "@/components/customer/RefundOrder";
 import RefundOrder1 from "@/components/business/RefundOrder";
@@ -20,23 +18,25 @@ import UnconfirmOrderList from "@/components/business/UnconfirmOrderList";
 import BusinessShopInfoView from "@/views/BusinessShopInfoView";
 import BusinessShopOrderView from "@/views/BusinessShopOrderView";
 import LoginView from "@/views/LoginView";
+import ConfirmOrderList from "@/components/business/ConfirmOrderList.vue";
+import PayOrder from "@/components/customer/PayOrder.vue";
 
 Vue.use(VueRouter)
 
 const routes = [
     //  顾客
     {
-        path: '/shops',
+        path: '/shopsOfCustomer',
         name: 'index',
         component: CustomerShopListView,
         children: [
             {
-                path: '/shops',
+                path: '/shopsOfCustomer',
                 component: ShopList,
                 meta: {title: '商店列表'}
             },
             {
-                path: '/allorders',
+                path: '/allOrdersOfCustomer',
                 component: AllOrderList,
                 meta: {title: '所有订单'}
             },
@@ -46,12 +46,12 @@ const routes = [
                 meta: {title: '未支付订单'}
             },
             {
-                path: '/already',
-                component: AlreadyOrder,
+                path: '/payOrder',
+                component: PayOrder,
                 meta: {title: '已支付订单'}
             },
             {
-                path: '/refund',
+                path: '/refundOfCustomer',
                 component: RefundOrder,
                 meta: {title: '退款订单'}
             },
@@ -76,18 +76,18 @@ const routes = [
 
     // 商家
     {
-        path: '/shops1',
+        path: '/shopsOfBusiness',
         name: 'shops1',
         component: BusinessShopListView,
     },
     {
-        path: '/allorders1',
-        name: 'allorders1',
+        path: '/allOrdersOfBusiness',
+        name: 'allOrdersOfBusiness',
         component: BusinessShopOrderView,
-        redirect: '/allorders1',
+        redirect: '/allOrdersOfBusiness',
         children: [
             {
-                path: '/allorders1',
+                path: '/allOrdersOfBusiness',
                 component: AllOrderList1,
                 meta: {title: '所有订单'}
             },
@@ -97,12 +97,12 @@ const routes = [
                 meta: {title: '未确认订单'}
             },
             {
-                path: '/already1',
-                component: AlreadyOrder1,
+                path: '/confirm',
+                component: ConfirmOrderList,
                 meta: {title: '已确认订单'}
             },
             {
-                path: '/refund1',
+                path: '/refundOfBusiness',
                 component: RefundOrder1,
                 meta: {title: '退款订单'}
             },

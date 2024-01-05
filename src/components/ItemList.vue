@@ -133,7 +133,7 @@ export default {
             }
             axios.post('/customer/addOrder', cart).then(function (res) {
                 console.log(res.data)
-                if (res.data.flag === true) {
+                if (res.data.code === true) {
                     that.$router.push({
                         name: 'orderinfo',
                         params: {
@@ -149,18 +149,16 @@ export default {
     },
 
     mounted() {
-        axios.get('/shop/getShopItemState1')
+        axios.get('/shop/getShopItemState1?shopId=' + localStorage.getItem("shopId"))
             .then((res) => {
-                console.log(res.data)
+                console.log("进入商家界面：", res.data)
                 for (let i = 0; i < res.data.data.length; i++) {
-                    console.log(res.data.data[i])
+                    // console.log(res.data.data[i])
                     this.product.push(res.data.data[i])
                     this.product[i].count = 0
                 }
                 console.log(this.product)
             })
-
-
     },
 
 

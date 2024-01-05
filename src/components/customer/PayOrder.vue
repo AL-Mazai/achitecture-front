@@ -61,7 +61,7 @@
 import axios from "axios";
 
 export default {
-    name: "AlreadyOrder",
+    name: "PayOrder",
     data() {
         return {
             tableData: [],
@@ -95,7 +95,7 @@ export default {
                         message: "已删除该订单^-^",
                         type: 'error'
                     })
-                    that.$router.push('/already')
+                    that.$router.push('/payOrder')
                 })
         }
     },
