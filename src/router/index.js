@@ -41,7 +41,7 @@ const routes = [
                 meta: {title: '所有订单'}
             },
             {
-                path: '/unpay',
+                path: '/unPay',
                 component: UnpayOrderList,
                 meta: {title: '未支付订单'}
             },

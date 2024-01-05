@@ -49,9 +49,9 @@
             width="30%">
             <span>确认删除订单?</span>
             <span slot="footer" class="dialog-footer">
-    <el-button @click="dialogVisible1 = false">取 消</el-button>
-    <el-button type="primary" @click="dialogVisible1 = false;cancel()">确 定</el-button>
-  </span>
+                <el-button @click="dialogVisible1 = false">取 消</el-button>
+                <el-button type="primary" @click="dialogVisible1 = false;cancel()">确 定</el-button>
+            </span>
         </el-dialog>
     </div>
 

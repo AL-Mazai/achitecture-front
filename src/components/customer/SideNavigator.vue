@@ -13,16 +13,14 @@
                 default-active="/shopsOfCustomer"
             >
                 <el-menu-item index="/shopsOfCustomer">
-                    <template slot="title">
-                        <i class="el-icon-goods"></i>
-                        <span>商店列表</span>
-                    </template>
+                    <i class="el-icon-goods"></i>
+                    <span>商店列表</span>
                 </el-menu-item>
                 <el-menu-item index="/allOrdersOfCustomer">
                     <i class="el-icon-document-copy"></i>
                     <span slot="title">所有订单</span>
                 </el-menu-item>
-                <el-menu-item index="/unpay">
+                <el-menu-item index="/unPay">
                     <i class="el-icon-document"></i>
                     <span slot="title">未支付订单</span>
                 </el-menu-item>
