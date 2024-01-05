@@ -9,31 +9,31 @@
                         animated
                         :throttle="500"
                     >
-                            <el-card :body-style="{ padding: '0px', marginBottom: '1px'}" style="margin-bottom: 10px">
-                                <img
-                                    src="@/assets/img/1.png"
-                                    class="image"
-                                    alt=""
-                                />
-                                <div style="padding: 5px;">
-                                    <div
-                                        style="font-family: 'PingFang SC',serif;font-weight: bold;font-size: 20px">
-                                        {{ shop.name }}
-                                    </div>
-                                    <div class="time" style="font-size: 14px;color: #e5e9f2;margin-bottom: 1vh">
-                                        ( {{ shop.description }} )
-                                    </div>
-                                    <div class="bottom card-header">
-
-                                        <el-button type="primary" plain size="small"
-                                                   @click="entershop(shop.id,shop.name)">进入商店
-                                        </el-button>
-                                        <el-button type="warning" plain size="small"
-                                                   @click="entershoporder(shop.id,shop.name)">查看订单
-                                        </el-button>
-                                    </div>
+                        <el-card :body-style="{ padding: '0px', marginBottom: '1px'}" style="margin-bottom: 10px">
+                            <img
+                                src="@/assets/img/1.png"
+                                class="image"
+                                alt=""
+                            />
+                            <div style="padding: 5px;">
+                                <div
+                                    style="font-family: 'PingFang SC',serif;font-weight: bold;font-size: 20px">
+                                    {{ shop.name }}
                                 </div>
-                            </el-card>
+                                <div class="time" style="font-size: 14px;color: #e5e9f2;margin-bottom: 1vh">
+                                    ( {{ shop.description }} )
+                                </div>
+                                <div class="bottom card-header">
+
+                                    <el-button type="primary" plain size="small"
+                                               @click="entershop(shop.id,shop.name)">进入商店
+                                    </el-button>
+                                    <el-button type="warning" plain size="small"
+                                               @click="entershoporder(shop.id,shop.name)">查看订单
+                                    </el-button>
+                                </div>
+                            </div>
+                        </el-card>
                     </el-skeleton>
                 </div>
             </el-col>
@@ -61,16 +61,16 @@ export default {
             console.log("@", id, name)
             businessStore.businessId = id;
             businessStore.businessName = name
-            localStorage.setItem('shopName',businessStore.businessName)
-            localStorage.setItem('shopId',businessStore.businessId)
+            localStorage.setItem('shopName', businessStore.businessName)
+            localStorage.setItem('shopId', businessStore.businessId)
             this.$router.push('/shopinfo1')
         },
         entershoporder(id, name) {
             console.log(id, name)
             businessStore.businessId = id;
             businessStore.businessName = name
-            localStorage.setItem('shopName',businessStore.businessName)
-            localStorage.setItem('shopId',businessStore.businessId)
+            localStorage.setItem('shopName', businessStore.businessName)
+            localStorage.setItem('shopId', businessStore.businessId)
             this.$router.push('/allOrdersOfBusiness')
         }
     },
@@ -90,5 +90,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
