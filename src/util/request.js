@@ -11,6 +11,7 @@ const service = axios.create({
 //使用
 service.interceptors.request.use(
     res => {
+        console.log("请求拦截器:", res)
         if (res) {
             if (getCookie("token")) {
                 res.headers.Authorization = getCookie("token")
