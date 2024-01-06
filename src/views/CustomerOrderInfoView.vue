@@ -113,9 +113,9 @@ export default {
         this.product = this.$route.params.pro
         this.total = this.$route.params.sum
         this.orderid = this.$route.params.orderid
-        console.log(this.product)
-        console.log("orderid:")
-        console.log(this.orderid)
+        // console.log(this.product)
+        // console.log("orderid:")
+        // console.log(this.orderid)
         // console.log(this.business.businessName)
     }
 }

@@ -35,24 +35,25 @@
                         size="medium"
                         @click="handleEdit(scope.$index, scope.row)">查看详情
                     </el-button>
-                    <el-button
-                        type="danger" plain
-                        size="medium"
-                        @click="handleDelete(scope.$index, scope.row)">删除
-                    </el-button>
+<!--                    <el-button-->
+<!--                        type="danger" plain-->
+<!--                        size="medium"-->
+<!--                        @click="handleDelete(scope.$index, scope.row)">删除-->
+<!--                    </el-button>-->
                 </template>
             </el-table-column>
         </el-table>
-        <el-dialog
-            title="提示"
-            :visible.sync="dialogVisible1"
-            width="30%">
-            <span>确认删除订单?</span>
-            <span slot="footer" class="dialog-footer">
-                <el-button @click="dialogVisible1 = false">取 消</el-button>
-                <el-button type="primary" @click="dialogVisible1 = false;cancel()">确 定</el-button>
-            </span>
-        </el-dialog>
+
+<!--        <el-dialog-->
+<!--            title="提示"-->
+<!--            :visible.sync="dialogVisible1"-->
+<!--            width="30%">-->
+<!--            <span>确认删除订单?</span>-->
+<!--            <span slot="footer" class="dialog-footer">-->
+<!--                <el-button @click="dialogVisible1 = false">取 消</el-button>-->
+<!--                <el-button type="primary" @click="dialogVisible1 = false;cancel()">确 定</el-button>-->
+<!--            </span>-->
+<!--        </el-dialog>-->
     </div>
 
 </template>
@@ -82,11 +83,11 @@ export default {
                 }
             })
         },
-        handleDelete(index, row) {
-            console.log(index, row);
-            this.dialogVisible1 = true;
-            this.orderid = row.id
-        },
+        // handleDelete(index, row) {
+        //     console.log(index, row);
+        //     this.dialogVisible1 = true;
+        //     this.orderid = row.id
+        // },
         cancel() {
             const that = this
             axios.get('/customer/deleteOrder?orderId=' + this.orderid)

@@ -16,7 +16,7 @@
                 <el-col :span="8" style="margin:0"><h4>商品数量</h4></el-col>
                 <el-col :span="8" style="margin:0"><h4>合计</h4></el-col>
             </el-row>
-            <el-row v-for="(item,index) in details.lineItemDto" :key="index">
+            <el-row v-for="(item,index) in details.lineItemVo" :key="index">
                 <div>
                     <el-col :span="8" style="margin-bottom: 10px;">{{ item.itemName }}</el-col>
                     <el-col :span="8" style="margin-bottom: 10px">{{ item.count }}</el-col>
@@ -72,7 +72,7 @@ export default {
                 createDate: '',
                 customerName: '',
                 id: '',
-                lineItemDto: [],
+                lineItemVo: [],
                 payState: '',
                 shopName: '',
                 state: '',
@@ -155,12 +155,13 @@ export default {
         axios.get('/customer/getOrderById?orderId=' + this.orderid)
             .then(function (res) {
                 that.details = res.data.data
+                console.log(res.data.data)
             })
         // this.details = this.$route.params.detail
-        console.log(this.details)
-        console.log(this.product)
-        console.log("orderid:")
-        console.log(this.orderid)
+        // console.log(this.details)
+        // console.log(this.product)
+        // console.log("orderid:")
+        // console.log(this.orderid)
     }
 }
 </script>

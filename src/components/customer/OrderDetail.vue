@@ -18,7 +18,8 @@
                 <el-col :span="8" style="margin:0"><h4>商品数量</h4></el-col>
                 <el-col :span="8" style="margin:0"><h4>合计</h4></el-col>
             </el-row>
-            <el-row v-for="(item,index) in details.lineItemDto" :key="index">
+
+            <el-row v-for="(item,index) in details.lineItemVo" :key="index">
                 <div>
                     <el-col :span="8" style="margin-bottom: 10px;">{{ item.itemName }}</el-col>
                     <el-col :span="8" style="margin-bottom: 10px">{{ item.count }}</el-col>
@@ -30,7 +31,8 @@
                 <el-col :span="16">合计: {{ details.totalPrice }}元</el-col>
                 <el-col :span="8">
                     <el-button type="success" plain v-if="details.payState===0" @click="pay()"> 支付</el-button>
-                    <el-button type="danger" plain @click="dialogVisible1 = true;"> 删除</el-button>
+                    <el-button type="warning" plain v-if="details.payState===0" @click="dialogVisible1 = true;"> 取消订单</el-button>
+                    <el-button type="danger" plain v-if="details.payState===1" @click="dialogVisible1 = true;"> 删除订单</el-button>
                 </el-col>
             </el-row>
         </el-main>
@@ -39,11 +41,12 @@
             title="提示"
             :visible.sync="dialogVisible1"
             width="30%">
-            <span>确认删除订单?</span>
+            <span v-if="details.payState===1">确认删除订单?</span>
+            <span v-if="details.payState===0">确认取消订单?</span>
             <span slot="footer" class="dialog-footer">
-    <el-button @click="dialogVisible1 = false">取 消</el-button>
-    <el-button type="primary" @click="dialogVisible1 = false;cancel()">确 定</el-button>
-  </span>
+                <el-button @click="dialogVisible1 = false">取 消</el-button>
+                <el-button type="primary" @click="dialogVisible1 = false;cancel()">确 定</el-button>
+            </span>
         </el-dialog>
     </el-container>
 </template>
@@ -70,7 +73,7 @@ export default {
                 createDate: '',
                 customerName: '',
                 id: '',
-                lineItemDto: [],
+                lineItemVo: [],
                 payState: '',
                 shopName: '',
                 state: '',
@@ -120,12 +123,9 @@ export default {
         axios.get('/customer/getOrderById?orderId=' + this.orderid)
             .then(function (res) {
                 that.details = res.data.data
+                console.log(this.details)
             })
         // this.details = this.$route.params.detail
-        console.log(this.details)
-        console.log(this.product)
-        console.log("orderid:")
-        console.log(this.orderid)
     }
 }
 </script>
